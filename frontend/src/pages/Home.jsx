@@ -5,31 +5,16 @@ const Home = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
-    const [showAppPopup, setShowAppPopup] = useState(false);
-
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll);
 
-        // Show app popup after 5 seconds if not closed before
-        const timer = setTimeout(() => {
-            if (!localStorage.getItem('appPopupClosed')) {
-                setShowAppPopup(true);
-            }
-        }, 5000);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            clearTimeout(timer);
         };
     }, []);
-
-    const closePopup = () => {
-        setShowAppPopup(false);
-        localStorage.setItem('appPopupClosed', 'true');
-    };
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -182,28 +167,6 @@ const Home = () => {
                 <p>&copy; 2026 आहाना शेती फार्म. सर्व हक्क राखीव.</p>
             </footer>
 
-            {/* App Download Popup Modal */}
-            {showAppPopup && (
-                <div className="app-popup-overlay">
-                    <div className="app-popup-card animate-up">
-                        <button className="popup-close" onClick={closePopup}>✕</button>
-                        <div className="popup-icon">📲</div>
-                        <h3>आहाना शेती फार्म ॲप</h3>
-                        <p>आता आमचे अँड्रॉइड ॲप डाउनलोड करा आणि शेतीची कामे अधिक सोप्या पद्धतीने व्यवस्थापित करा!</p>
-                        <div className="popup-btns">
-                            <button className="btn-download" onClick={closePopup} style={{ border: 'none', cursor: 'pointer' }}>Download Now</button>
-                            <button className="btn-later" onClick={closePopup}>नंतर करा</button>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Sticky Mobile Download Button */}
-            <div className="mobile-app-sticky">
-                <button className="sticky-dl-btn" onClick={() => window.scrollTo(0, 0)} style={{ width: '100%', border: 'none', cursor: 'pointer' }}>
-                    <span>📲  App Download करा</span>
-                </button>
-            </div>
 
             <style>{`
         :root {
@@ -500,92 +463,6 @@ const Home = () => {
         .animate-up { animation: fadeInUp 0.7s ease forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
-
-        /* App Popup Styles */
-        .app-popup-overlay {
-          position: fixed;
-          top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(0,0,0,0.7);
-          z-index: 2000;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-          backdrop-filter: blur(5px);
-        }
-
-        .app-popup-card {
-          background: white;
-          padding: 2.5rem;
-          border-radius: 30px;
-          max-width: 400px;
-          width: 100%;
-          text-align: center;
-          position: relative;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .popup-close {
-          position: absolute;
-          top: 15px; right: 15px;
-          background: #f1f5f9;
-          border: none;
-          width: 30px; height: 30px;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-
-        .popup-icon { font-size: 4rem; margin-bottom: 1rem; }
-        .app-popup-card h3 { font-size: 1.5rem; color: var(--primary-green); margin-bottom: 1rem; }
-        .app-popup-card p { color: #64748b; margin-bottom: 2rem; line-height: 1.5; }
-
-        .popup-btns { display: flex; flex-direction: column; gap: 10px; }
-        .btn-download {
-          background: var(--primary-green);
-          color: white;
-          padding: 1rem;
-          border-radius: 15px;
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 1.1rem;
-        }
-        .btn-later {
-          background: none;
-          border: none;
-          color: #94a3b8;
-          font-weight: 600;
-          cursor: pointer;
-        }
-
-        /* Sticky Mobile Button */
-        .mobile-app-sticky {
-          position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 900;
-          width: 90%;
-          max-width: 300px;
-          display: none;
-        }
-
-        .sticky-dl-btn {
-          background: var(--primary-green);
-          color: white;
-          padding: 12px 20px;
-          border-radius: 50px;
-          text-decoration: none;
-          font-weight: 700;
-          box-shadow: 0 5px 20px rgba(46, 125, 50, 0.4);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 2px solid white;
-        }
-
-        @media (max-width: 768px) {
-          .mobile-app-sticky { display: block; }
-        }
 
         @media (max-width: 600px) {
           .services-grid { grid-template-columns: repeat(2, 1fr); }

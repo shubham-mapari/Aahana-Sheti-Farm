@@ -2,7 +2,6 @@
     "name": "frontend",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://shubham-mapari.github.io/Aahana-Sheti-Farm",
     "dependencies": {
         "@capacitor/android": "^8.0.1",
         "@capacitor/cli": "^8.0.1",
@@ -20,7 +19,8 @@
         "build": "react-scripts build",
         "mobile:sync": "npx cap sync",
         "mobile:open": "npx cap open android",
-        "mobile:build": "npm run build && npx cap sync",
+        "mobile:build": "npm run build-mobile && npx cap sync",
+        "build-mobile": "react-scripts build",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "test": "react-scripts test",
