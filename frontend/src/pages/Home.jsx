@@ -504,6 +504,8 @@ const Home = () => {
         }
 
         @media (max-width: 768px) {
+          .navbar { padding-top: 2rem; }
+          .hero-section { align-items: flex-start; padding-top: 25vh; }
           .bottom-nav { display: flex; }
           .home-wrapper { padding-bottom: 70px; } /* Space for nav */
           .hero-cta-groups { display: none !important; } /* Hide hero buttons on mobile */
