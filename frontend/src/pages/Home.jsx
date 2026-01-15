@@ -45,17 +45,15 @@ const Home = () => {
                         <span className="logo-brand">आहाना शेती फार्म</span>
                     </div>
 
-                    <div className={`nav-links-container ${isMenuOpen ? 'mobile-show' : ''}`}>
-                        <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
-                        <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-                        <a href="#gallery" onClick={() => setIsMenuOpen(false)}>Gallery</a>
-                        <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
-                        <Link to="/login" className="admin-login-btn" onClick={() => setIsMenuOpen(false)}>Admin Login</Link>
+                    <div className="nav-links-container mobile-hide-links">
+                        <a href="#home" className="desktop-only">Home</a>
+                        <a href="#services" className="desktop-only">Services</a>
+                        <a href="#gallery" className="desktop-only">Gallery</a>
+                        <a href="#contact" className="desktop-only">Contact</a>
+                        <Link to="/login" className="admin-login-btn">Admin Login</Link>
                     </div>
 
-                    <button className="mobile-menu-toggle" onClick={toggleMenu}>
-                        {isMenuOpen ? '✕' : '☰'}
-                    </button>
+                    {/* Mobile menu toggle removed as requested */}
                 </div>
             </nav>
 
@@ -271,41 +269,23 @@ const Home = () => {
           text-decoration: none;
         }
 
-        /* Mobile Navbar */
         @media (max-width: 768px) {
           .nav-links-container {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            flex-direction: column;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: flex; /* Always flex on mobile now */
+            gap: 1rem;
           }
 
-          .nav-links-container.mobile-show {
-            display: flex;
+          .desktop-only {
+            display: none !important;
           }
 
-          .nav-links-container a {
-            color: var(--secondary-charcoal) !important;
-            font-size: 1.25rem;
-            padding: 1rem;
+          .admin-login-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
           }
 
           .mobile-menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-green);
-          }
-          
-          .navbar:not(.nav-scrolled) .mobile-menu-toggle {
-            color: white;
+            display: none !important;
           }
         }
 
