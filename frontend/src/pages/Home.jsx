@@ -191,7 +191,7 @@ const Home = () => {
                         <h3>आहाना शेती फार्म ॲप</h3>
                         <p>आता आमचे अँड्रॉइड ॲप डाउनलोड करा आणि शेतीची कामे अधिक सोप्या पद्धतीने व्यवस्थापित करा!</p>
                         <div className="popup-btns">
-                            <a href="#" className="btn-download" onClick={closePopup}>Download Now</a>
+                            <button className="btn-download" onClick={closePopup} style={{ border: 'none', cursor: 'pointer' }}>Download Now</button>
                             <button className="btn-later" onClick={closePopup}>नंतर करा</button>
                         </div>
                     </div>
@@ -200,9 +200,9 @@ const Home = () => {
 
             {/* Sticky Mobile Download Button */}
             <div className="mobile-app-sticky">
-                <a href="#" className="sticky-dl-btn">
+                <button className="sticky-dl-btn" onClick={() => window.scrollTo(0, 0)} style={{ width: '100%', border: 'none', cursor: 'pointer' }}>
                     <span>📲  App Download करा</span>
-                </a>
+                </button>
             </div>
 
             <style>{`
