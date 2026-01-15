@@ -176,11 +176,11 @@ const Home = () => {
             <div className="bottom-nav">
                 <button onClick={() => scrollToSection('services')} className="bottom-nav-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                     <span className="bottom-nav-icon">🚜</span>
-                    <span className="bottom-nav-label">सेवा (Seva)</span>
+                    <span className="bottom-nav-label">सेवा </span>
                 </button>
                 <button onClick={() => scrollToSection('contact')} className="bottom-nav-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                     <span className="bottom-nav-icon">📞</span>
-                    <span className="bottom-nav-label">संपर्क (Contact)</span>
+                    <span className="bottom-nav-label">संपर्क </span>
                 </button>
                 <Link to="/login" className="bottom-nav-item">
                     <span className="bottom-nav-icon">👤</span>
@@ -509,7 +509,10 @@ const Home = () => {
           .bottom-nav { display: flex; }
           .home-wrapper { padding-bottom: 70px; } /* Space for nav */
           .hero-cta-groups { display: none !important; } /* Hide hero buttons on mobile */
-          .services-grid { grid-template-columns: repeat(2, 1fr); padding: 0 10px; }
+          .services-grid { grid-template-columns: repeat(2, 1fr); padding: 0 10px; gap: 0.75rem; }
+          .service-card-mini { padding: 1rem; border-radius: 12px; }
+          .mini-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+          .service-card-mini h4 { font-size: 0.85rem; line-height: 1.3; }
           .hero-title { font-size: 2.2rem; margin-bottom: 0.5rem; }
           .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
           .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
