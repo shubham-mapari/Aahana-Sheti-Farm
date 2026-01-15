@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Aahana-Sheti-Farm/static/css/main.490ac69a.css",
-    "main.js": "/Aahana-Sheti-Farm/static/js/main.af72bc77.js",
-    "index.html": "/Aahana-Sheti-Farm/index.html",
-    "main.490ac69a.css.map": "/Aahana-Sheti-Farm/static/css/main.490ac69a.css.map",
-    "main.af72bc77.js.map": "/Aahana-Sheti-Farm/static/js/main.af72bc77.js.map"
+    "main.css": "/static/css/main.490ac69a.css",
+    "main.js": "/static/js/main.03cb5a56.js",
+    "index.html": "/index.html",
+    "main.490ac69a.css.map": "/static/css/main.490ac69a.css.map",
+    "main.03cb5a56.js.map": "/static/js/main.03cb5a56.js.map"
   },
   "entrypoints": [
     "static/css/main.490ac69a.css",
-    "static/js/main.af72bc77.js"
+    "static/js/main.03cb5a56.js"
   ]
 }
