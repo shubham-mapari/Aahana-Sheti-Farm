@@ -18,6 +18,13 @@ const Home = () => {
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const servicesList = [
         { id: 1, name: "नांगरणी (Ploughing)", icon: "🚜" },
         { id: 2, name: "डिस्क हॅरो करणे (Disc Harrowing)", icon: "⚙️" },
@@ -45,12 +52,12 @@ const Home = () => {
                         <span className="logo-brand">आहाना शेती फार्म</span>
                     </div>
 
-                    <div className="nav-links-container mobile-hide-links">
-                        <a href="#home" className="desktop-only">Home</a>
-                        <a href="#services" className="desktop-only">Services</a>
-                        <a href="#gallery" className="desktop-only">Gallery</a>
-                        <a href="#contact" className="desktop-only">Contact</a>
-                        <Link to="/login" className="admin-login-btn">Admin Login</Link>
+                    <div className="nav-links-container">
+                        <a href="#home" className="desktop-only text-white">Home</a>
+                        <a href="#services" className="desktop-only text-white">Services</a>
+                        <a href="#gallery" className="desktop-only text-white">Gallery</a>
+                        <a href="#contact" className="desktop-only text-white">Contact</a>
+                        <Link to="/login" className="admin-login-btn desktop-only">Admin Login</Link>
                     </div>
 
                     {/* Mobile menu toggle removed as requested */}
@@ -165,6 +172,22 @@ const Home = () => {
                 <p>&copy; 2026 आहाना शेती फार्म. सर्व हक्क राखीव.</p>
             </footer>
 
+            {/* Mobile Bottom Navigation Bar */}
+            <div className="bottom-nav">
+                <button onClick={() => scrollToSection('services')} className="bottom-nav-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <span className="bottom-nav-icon">🚜</span>
+                    <span className="bottom-nav-label">सेवा (Seva)</span>
+                </button>
+                <button onClick={() => scrollToSection('contact')} className="bottom-nav-item" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <span className="bottom-nav-icon">📞</span>
+                    <span className="bottom-nav-label">संपर्क (Contact)</span>
+                </button>
+                <Link to="/login" className="bottom-nav-item">
+                    <span className="bottom-nav-icon">👤</span>
+                    <span className="bottom-nav-label">Admin</span>
+                </Link>
+            </div>
+
 
             <style>{`
         :root {
@@ -173,6 +196,10 @@ const Home = () => {
           --accent-gold: #ffd600;
           --bg-light: #f5f5f5;
           --white: #ffffff;
+        }
+
+        html {
+          scroll-behavior: smooth;
         }
 
         .home-wrapper {
@@ -271,21 +298,11 @@ const Home = () => {
 
         @media (max-width: 768px) {
           .nav-links-container {
-            display: flex; /* Always flex on mobile now */
-            gap: 1rem;
+            display: none; /* Hide top links because we have bottom nav now */
           }
-
-          .desktop-only {
-            display: none !important;
-          }
-
-          .admin-login-btn {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-          }
-
-          .mobile-menu-toggle {
-            display: none !important;
+          
+          .logo-brand {
+            font-size: 1.1rem; /* Slightly smaller for mobile */
           }
         }
 
@@ -444,9 +461,56 @@ const Home = () => {
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
 
-        @media (max-width: 600px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr); }
-          .hero-title { font-size: 2.2rem; }
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: #1e293b; /* Dark slate */
+            border-top: 2px solid var(--accent-gold);
+            z-index: 2000;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+            padding: 5px 0;
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #94a3b8; /* Slate light */
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .bottom-nav-icon {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .bottom-nav-item:active, .bottom-nav-item:hover {
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+          .bottom-nav { display: flex; }
+          .home-wrapper { padding-bottom: 70px; } /* Space for nav */
+          .hero-cta-groups { display: none !important; } /* Hide hero buttons on mobile */
+          .services-grid { grid-template-columns: repeat(2, 1fr); padding: 0 10px; }
+          .hero-title { font-size: 2.2rem; margin-bottom: 0.5rem; }
+          .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
+          .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
         }
       `}</style>
         </div>
