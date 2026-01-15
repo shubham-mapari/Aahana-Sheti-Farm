@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar-header">
                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--primary-green)' }}>
-                    <img src="/assets/logo.jpg" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img src={process.env.PUBLIC_URL + '/assets/logo.jpg'} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <span className="logo-text" style={{ fontSize: '1.1rem' }}>आहाना ॲडमिन</span>
             </div>

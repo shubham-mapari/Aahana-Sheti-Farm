@@ -32,7 +32,7 @@ const UpdatePassword = () => {
         <div className="login-container">
             <div className="login-card">
                 <div className="login-logo-wrap">
-                    <img src="/assets/logo.jpg" alt="Logo" />
+                    <img src={process.env.PUBLIC_URL + '/assets/logo.jpg'} alt="Logo" />
                 </div>
 
                 <h2 className="login-title">नवीन पासवर्ड सेट करा</h2>

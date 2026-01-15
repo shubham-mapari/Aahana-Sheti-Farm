@@ -45,7 +45,7 @@ const Login = () => {
         <div className="login-container">
             <div className="login-card">
                 <div className="login-logo-wrap">
-                    <img src="/assets/logo.jpg" alt="Logo" />
+                    <img src={process.env.PUBLIC_URL + '/assets/logo.jpg'} alt="Logo" />
                 </div>
 
                 {!showReset ? (

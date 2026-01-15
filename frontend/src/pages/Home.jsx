@@ -55,7 +55,7 @@ const Home = () => {
                 <div className="nav-container">
                     <div className="logo-section">
                         <div className="logo-img-wrapper">
-                            <img src="/assets/logo.jpg" alt="Aahana Sheti Farm Logo" className="logo-img" />
+                            <img src={process.env.PUBLIC_URL + '/assets/logo.jpg'} alt="Aahana Sheti Farm Logo" className="logo-img" />
                         </div>
                         <span className="logo-brand">आहाना शेती फार्म</span>
                     </div>
@@ -77,7 +77,7 @@ const Home = () => {
             {/* Hero Section */}
             <header id="home" className="hero-section">
                 <div className="hero-overlay"></div>
-                <img src="/assets/hero-bg.jpg" alt="Tractor background" className="hero-bg-img" />
+                <img src={process.env.PUBLIC_URL + '/assets/hero-bg.jpg'} alt="Tractor background" className="hero-bg-img" />
                 <div className="hero-content">
                     <h1 className="hero-title animate-up">शेतकऱ्यांचा विश्वास, आधुनिक शेतीची ताकद</h1>
                     <p className="hero-subtitle animate-up delay-1">ट्रॅक्टर व शेतीची सर्व कामे – योग्य दरात, हमखास सेवा</p>
@@ -133,12 +133,12 @@ const Home = () => {
                 <div className="container">
                     <h2 className="section-title">आमचा फोटो अल्बम</h2>
                     <div className="gallery-grid">
-                        <div className="gallery-item"><img src="/assets/tractor1.jpg" alt="Work 1" /></div>
-                        <div className="gallery-item"><img src="/assets/tractor2.jpg" alt="Work 2" /></div>
-                        <div className="gallery-item"><img src="/assets/tractor3.jpg" alt="Work 3" /></div>
-                        <div className="gallery-item"><img src="/assets/tractor4.jpg" alt="Work 4" /></div>
-                        <div className="gallery-item"><img src="/assets/tractor5.jpg" alt="Work 5" /></div>
-                        <div className="gallery-item"><img src="/assets/tractor6.jpg" alt="Work 6" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor1.jpg'} alt="Work 1" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor2.jpg'} alt="Work 2" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor3.jpg'} alt="Work 3" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor4.jpg'} alt="Work 4" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor5.jpg'} alt="Work 5" /></div>
+                        <div className="gallery-item"><img src={process.env.PUBLIC_URL + '/assets/tractor6.jpg'} alt="Work 6" /></div>
                     </div>
                     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                         <a href="https://www.instagram.com/aahana_sheti_farm" target="_blank" rel="noreferrer" className="insta-link">
@@ -177,7 +177,7 @@ const Home = () => {
             {/* Footer */}
             <footer className="main-footer">
                 <div className="footer-logo-wrap">
-                    <img src="/assets/logo.jpg" alt="Logo small" className="footer-logo" />
+                    <img src={process.env.PUBLIC_URL + '/assets/logo.jpg'} alt="Logo small" className="footer-logo" />
                 </div>
                 <p>&copy; 2026 आहाना शेती फार्म. सर्व हक्क राखीव.</p>
             </footer>
